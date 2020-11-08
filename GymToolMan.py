@@ -8,8 +8,7 @@ def register(activity):
 
     dict = {'gym': 1, 'badminton': 2}
 
-    # Start the driver in headless mode
-    browser = Browser('chrome', headless=True)
+    browser = Browser('chrome')
 
     browser.visit('https://warrior.uwaterloo.ca/')
 
