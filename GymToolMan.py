@@ -63,6 +63,7 @@ def register(activity):
     print("Registerd!")
     return
 
+# Register periodically
 schedule.every().monday.at("15:00").do(register,"gym")
 schedule.every().wednesday.at("15:00").do(register,"badminton")
 schedule.every().thursday.at("15:00").do(register,"gym")
@@ -74,5 +75,6 @@ while True:
     schedule.run_pending()
     time.sleep(1)
 
+# Register immediately
 # register("badminton")
 
