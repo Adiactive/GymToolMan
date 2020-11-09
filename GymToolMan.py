@@ -61,7 +61,7 @@ def register(activity):
 
     # Accept the waiver and checkout
     print("Signing the waiver...")
-    while not browser.find_by_text("Accept Now").first.visible:
+    while browser.is_text_not_present("ACCEPT NOW"):
             time.sleep(.1)
     browser.find_by_text("Accept Now").first.click()
     for i in range(1, 9):
