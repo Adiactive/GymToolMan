@@ -6,17 +6,26 @@ def register(activity):
     username = 'my_username'
     password = 'my_pwd'
 
-    dict = {'gym': 1, 'badminton': 2}
+    browser = Browser('chrome', headless=True)
 
-    browser = Browser('chrome')
+    # browse the warrior index page
+    # browser.visit('https://warrior.uwaterloo.ca/')
 
-    browser.visit('https://warrior.uwaterloo.ca/')
+    # browse Facility Access Reservation
+    # browser.visit('https://warrior.uwaterloo.ca/Program/GetProducts?classification=01e6d66f-044b-42c0-9cc9-495c9586f4db')
 
     # Browse the Facility Access Reservation categories
-    browser.find_by_css('.Menu-Item').first.click()
+    # browser.find_by_css('.Menu-Item').first.click()
+
+    # browse activity page directly based on the activities
+    if (activity == 'gym'):
+        browser.visit('https://warrior.uwaterloo.ca/Program/GetProgramDetails?courseId=cc2a16d7-f148-461e-831d-7d4659726dd1&semesterId=b0d461c3-71ea-458e-b150-134678037221')
+    if (activity == 'badminton'):
+        browser.visit('https://warrior.uwaterloo.ca/Program/GetProgramDetails?courseId=5f834760-8c08-4eff-8d1d-fbe01dd538f6&semesterId=b0d461c3-71ea-458e-b150-134678037221')
 
     # Browse the CIF FITNESS CENTER program
-    browser.find_by_css('.list-group-item')[dict[activity]].click()
+    # dict = {'gym': 1, 'badminton': 2}
+    # browser.find_by_css('.list-group-item')[dict[activity]].click()
 
     # Check login status
     if browser.is_element_present_by_text('Log In'):
