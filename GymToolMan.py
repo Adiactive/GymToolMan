@@ -1,4 +1,5 @@
 from splinter import Browser
+from datetime import datetime
 import time
 import schedule
 
@@ -54,6 +55,13 @@ def register(activity):
             time.sleep(.1)
     print("Login Successful!")
     browser.reload()
+    
+    # Login before the hour in case there are other toolmen
+    if (datetime.now().minute == 59):
+        print("Toolman stand by...")
+        while(datetime.now().minute != 0):
+            time.sleep(1)
+    browser.reload()
 
     # Register the latest reservation
     resv = browser.find_by_text("Register")
@@ -72,7 +80,7 @@ def register(activity):
     return
 
 # Register periodically
-schedule.every().monday.at("15:00").do(register,"gym")
+schedule.every().monday.at("14:59").do(register,"gym")
 schedule.every().wednesday.at("15:00").do(register,"badminton")
 schedule.every().thursday.at("15:00").do(register,"gym")
 schedule.every().friday.at("15:00").do(register,"gym")
