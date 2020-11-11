@@ -73,7 +73,7 @@ def register(activity):
             time.sleep(.1)
     browser.find_by_text("Accept Now").first.click()
     for i in range(1, 9):
-        browser.choose(f'CustomPrompts[{i}].CommonInput', 'False')
+        browser.choose('CustomPrompts[{}].CommonInput'.format(i), 'False')
     browser.find_by_text("Add to Cart").first.click()
     browser.execute_script("Submit();")
     print("Registerd!")
