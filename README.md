@@ -19,4 +19,5 @@ $ nohup python GymToolMan.py &
 ```
 
 Register periodically at pre-determined intervals, see [schedule docs](https://schedule.readthedocs.io/en/stable/)
+
 Set the timer to `xx:59` to log in in advance so the registration can begin as soon as the timer hits the hour.
