@@ -2,6 +2,26 @@
 A python script based on [splinter](https://github.com/cobrateam/splinter) and [schedule](https://github.com/dbader/schedule) to register open activities in UWaterloo CIF during the pandemic
 
 ## Install Dependencies
+
+### Chrome WebDriver
+
+Chrome WebDriver is provided by Selenium2. To use it, you need to install Selenium2 via pip:
+
+```
+$ [sudo] pip install selenium
+```
+
+It’s important to note that you also need to have Google Chrome installed in your machine.
+In order to use Google Chrome with Splinter, you need to setup Chrome webdriver properly. You can follow the [official guide](https://splinter.readthedocs.io/en/latest/drivers/chrome.html#) to do setup.
+
+#### Mac OS X:
+
+```
+$ brew cask install chromedriver
+```
+
+### Install splinter and schedule
+
 ```
 $ pip install splinter
 $ pip install schedule
