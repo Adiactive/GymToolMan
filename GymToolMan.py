@@ -44,6 +44,7 @@ def register(activity):
             time.sleep(.1)
         while(browser.find_by_name("Username").first.value == ''):
             browser.fill('Username', username)
+        while(browser.find_by_name("Password").first.value == ''):            
             browser.fill('Password', password)
         
         # Submit and login
